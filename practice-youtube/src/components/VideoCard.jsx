@@ -1,10 +1,19 @@
 import React from "react";
+import { formatago } from "../util/date";
+import { useNavigate } from "react-router-dom";
 
 export default function VideoCard({ video }) {
-  const { title } = video.snippet;
+  const { thumbnails, title, channelTitle, publishedAt } = video.snippet;
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/videos/watch/${video.id}`, { state: { video } });
+  };
   return (
-    <div>
+    <li onClick={handleClick}>
+      <img src={thumbnails.high.url} alt={title} />
       <p>{title}</p>
-    </div>
+      <p>{channelTitle}</p>
+      <p>{formatago(publishedAt)}</p>
+    </li>
   );
 }

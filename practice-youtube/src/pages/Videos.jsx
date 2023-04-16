@@ -2,18 +2,16 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import VideoCard from "../components/VideoCard";
+import { useYoutubeApi } from "../context/YoutubeApiContext";
 
 export default function Videos() {
   const { keyword } = useParams();
+  const { youtube } = useYoutubeApi();
   const {
     isLoading,
     error,
     data: videos,
-  } = useQuery(["videos", keyword], async () => {
-    return fetch("/videos/popular.json")
-      .then((res) => res.json())
-      .then((data) => data.items);
-  });
+  } = useQuery(["videos", keyword], () => youtube.search(keyword));
   return (
     <>
       {isLoading && <p>Loading...</p>}

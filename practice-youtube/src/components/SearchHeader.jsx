@@ -9,7 +9,7 @@ export default function SearchHeader() {
   const handleChange = (e) => setText(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/video/${text}`);
+    navigate(`/videos/${text}`);
   };
   useEffect(() => setText(keyword || ""), [keyword]);
   return (
