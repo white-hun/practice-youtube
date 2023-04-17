@@ -3,6 +3,10 @@ export default class Youtube {
     this.apiClient = apiClient;
   }
 
+  // constructor()
+  //객체의 기본 상태를 설정해주는 생성자 메서드
+  // new에 의해 자동으로 호출되므로,특별한 절차 없이 객체를 초기화 할 수 있다
+
   async search(keyword) {
     return keyword ? this.#searchByKeyword(keyword) : this.#mostPopular();
   }
