@@ -1,19 +1,19 @@
-import { createContext, useContext } from "react";
-import Youtube from "../api/Youtube";
-import YoutubeClient from "../api/YoutubeClient";
+// import { createContext, useContext } from "react";
+// import Youtube from "../api/Youtube";
+// import YoutubeClient from "../api/YoutubeClient";
 
-export const YoutubeApiContext = createContext();
+// export const YoutubeApiContext = createContext();
 
-const client = new YoutubeClient();
-const youtube = new Youtube(client);
+// const client = new YoutubeClient();
+// const youtube = new Youtube(client);
 
-export function YoutubeApiProvider({ children }) {
-  return <YoutubeApiContext.Provider value={{ youtube }}>{children}</YoutubeApiContext.Provider>;
-}
+// export function YoutubeApiProvider({ children }) {
+//   return <YoutubeApiContext.Provider value={{ youtube }}>{children}</YoutubeApiContext.Provider>;
+// }
 
-export function useYoutubeApi() {
-  return useContext(YoutubeApiContext);
-}
+// export function useYoutubeApi() {
+//   return useContext(YoutubeApiContext);
+// }
 
 // new Youtube를 호출
 // 1. 새로운 객체 생성
@@ -26,9 +26,11 @@ export function useYoutubeApi() {
 // 2. 함수 본문(<Youtube> - search)을 실행,
 //    --> keyword가 있을 때를 예로 들면,
 //        1. keyword를 받아서 #searchByKeyword를 실행,
-//        2. client(<YoutubeClient>)에 params를 전달하고 받은 데이터를 then로 처리
+//        2. client(<YoutubeClient>)에 params를 전달하고 받은 데이터를 then으로 처리
 //           (--> client 가 인수(property)로 할당) -->
 //           --> this에 새로운 property(this.apiClient=apiClient)를 추가해 this를 수정
 // 3. 암시적으로 this를 반환
 
 // 객체 메서드 호출 useQuery의 두번째 인자 callback함수에 사용 () => youtube.search(keyword)
+
+//-------------------------------------------------------------------------------------------
